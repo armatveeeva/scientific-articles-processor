@@ -1,0 +1,10 @@
+﻿__pycache__/
+*.pyc
+venv/
+.env
+data/
+!data/.gitkeep
+*.json
+!config/keywords.json.example
+.vscode/
+.idea/

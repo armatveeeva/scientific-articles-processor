@@ -1,0 +1,2 @@
+﻿chemdataextractor>=2.0
+yake>=0.4.8
