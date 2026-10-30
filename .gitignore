@@ -1,10 +1,14 @@
-﻿__pycache__/
-*.pyc
-venv/
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.venv/
 .env
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+# Данные и артефакты
 data/
-!data/.gitkeep
 *.json
 !config/keywords.json.example
-.vscode/
-.idea/
