@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir poetry
 COPY pyproject.toml poetry.lock ./
 
 # Добавляем chemdataextractor только для продакшена в Docker
-RUN poetry add chemdataextractor@^1.3.0
+RUN poetry install --only main,docker --no-root
 
 # Устанавливаем основные зависимости
 RUN poetry install --only main --no-root
