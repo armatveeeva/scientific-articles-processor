@@ -6,25 +6,15 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-# Устанавливаем системные зависимости для chemdataextractor и dawg
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-# Устанавливаем Poetry
 RUN pip install --no-cache-dir poetry
 
-# Копируем файлы зависимостей
 COPY pyproject.toml poetry.lock ./
 
-# Устанавливаем основные зависимости
 RUN poetry install --only main --no-root
 
-# Копируем исходный код
 COPY src ./src
 COPY config ./config
 
-# Создаем непривилегированного пользователя для безопасности (production best practice)
 RUN useradd -m processor && chown -R processor /app
 USER processor
 
